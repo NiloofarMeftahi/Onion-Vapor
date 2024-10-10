@@ -5,15 +5,17 @@ import Result from './Result';
 import ChoppingGif from './ChoppingGif';
 import GameButtons from './GameButtons';
 import Timer from './Timer'; 
+import TearWiper from "./TearWiper";
 
 const GameController = () => {
-  const [gameState, setGameState] = useState("home"); // home, game, result
+  const [gameState, setGameState] = useState("home"); // home, game, result, tear wipor
   const [selectedDefense, setSelectedDefense] = useState(null);
   const [tearDefenseScore, setTearDefenseScore] = useState(0);
   const [isCrying, setIsCrying] = useState(false);
   const [timer, setTimer] = useState(10); // 10 seconds timer
   const [blurAmount, setBlurAmount] = useState(0); // Starting with no blur
   const [isCryingCheckVisible, setIsCryingCheckVisible] = useState(false);
+  const [tearWiper, setTearWiper] = useState(false);
 
   useEffect(() => {
     let timerId;
@@ -61,6 +63,9 @@ const GameController = () => {
     setBlurAmount(0); // Reset blur when stopping the game
     setGameState("result");
   };
+  const tearWiperGame = () => {
+    setTearWiper(true); // Navigate to the new page
+  };
 
   const resetGame = () => {
     setGameState("home");
@@ -68,33 +73,37 @@ const GameController = () => {
     setSelectedDefense(null);
     setBlurAmount(0); // Reset blur when game resets
     setIsCryingCheckVisible(false); // Reset crying check visibility
+    setTearWiper(false); 
   };
 
   return (
-    <div className="game-controller" style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between' }}>
+    <div className="game-controller">
       <div style={{ filter: `blur(${blurAmount}px)`, flex: 1 }}>
-        {gameState === "home" && <Home startGame={startGame} />}
-        {gameState === "game" && (
+        {tearWiper && <TearWiper onReturnToHome={resetGame} selectedDefense={selectedDefense} />}
+
+        {!tearWiper && gameState === "home" && <Home startGame={startGame} />}
+        {!tearWiper && gameState === "game" && (
           <Game
             selectedDefense={selectedDefense}
             isCrying={isCrying}
-            tearDefenseScore={tearDefenseScore} 
+            tearDefenseScore={tearDefenseScore}
             handleCrying={handleCrying}
           />
         )}
-        {gameState === "result" && (
+        {!tearWiper && gameState === "result" && (
           <Result
             tearDefenseScore={tearDefenseScore}
             selectedDefense={selectedDefense}
             resetGame={resetGame}
+            tearWiperGame={tearWiperGame} // Pass the function to Result
           />
         )}
-        {gameState === "game" && <ChoppingGif />} {/* Display GIF during the game */}
+        {gameState === "game" && <ChoppingGif />}
       </div>
       {gameState === "game" && (
-       <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-       <Timer timeLeft={timer} />
-     </div>
+        <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+          <Timer timeLeft={timer} />
+        </div>
       )}
       {gameState === "game" && (
         <GameButtons
@@ -103,7 +112,6 @@ const GameController = () => {
           isCryingCheckVisible={isCryingCheckVisible}
         />
       )}
-     
     </div>
   );
 };
