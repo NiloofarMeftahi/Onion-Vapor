@@ -1,0 +1,227 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Use the Nunito font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #1e1e1e; 
+  text-align: center;
+  padding: 0; 
+  margin: 0; 
+}
+
+.App {
+  background-color: #333333; 
+  color: white;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  transition: filter 0.3s ease; 
+  overflow: hidden; 
+}
+
+
+h1 {
+  color: #f6b100;
+}
+
+
+.timer, .tear-defense-score {
+  font-size: 40px;
+  font-weight: bold;
+  color: #f6b100; 
+  margin-top: 20px; 
+}
+
+#crying-button-container button {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#crying-button-container button:first-child {
+  background-color: #ff5e7e; 
+}
+
+#crying-button-container button:last-child {
+  background-color: #00ce4f; 
+}
+
+#crying-button-container button:hover {
+  opacity: 0.9;
+}
+
+/* Stop Game Button */
+#stop-button-container .stop-game-button {
+  font-size: 24px;
+  padding: 10px 40px;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#stop-button-container .stop-game-button:hover {
+  background-color: #0056b3; 
+}
+
+.defense-methods {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+.blur {
+  filter: blur(4px); 
+}
+
+
+.chopping-gif {
+  margin: 20px 0; 
+}
+
+.chopping-gif iframe {
+  max-width: 100%; 
+  height: auto;  
+}
+
+
+h2 {
+  color: white;
+  margin: 10px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container h1 {
+  font-family: 'Nunito', sans-serif;
+  color: #ff6347; 
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.defense-methods {
+  display: flex;
+  gap: 20px;
+}
+
+.defense-methods button {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.defense-methods button:hover {
+  background-color: #ff4500; 
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.result-container h1 {
+  font-family: 'Nunito', sans-serif;
+  color: #ff6347; 
+  margin-bottom: 20px;
+}
+
+.result-container p {
+  font-family: 'Nunito', sans-serif;
+  color: #333;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.result-container .score {
+  font-size: 32px;
+  font-weight: 700; 
+  color: #ff7f50; 
+}
+
+.reset-button {
+  background-color: #ff7f50; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.reset-button:hover {
+  background-color: #ff4500; 
+}
+
+
+
+.instructions {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  animation: slideInBounce 1s ease forwards 0.3s; /* Apply the slide-in and bounce animation with a delay */
+}
+
+.instructions p {
+  font-size: 18px;
+  margin: 10px 0; 
+  line-height: 1.5; 
+  color: #e0e0e0; 
+}
+
+/* Highlight important instructions */
+.instructions .highlight {
+  color: #f6b100; /* Yellow color for highlights */
+  font-weight: bold; /* Bold for emphasis */
+}
+
+/* Slide In Animation */
+@keyframes slideInBounce {
+  0% {
+    transform: translateX(-100%); /* Slide from the left */
+    opacity: 0; /* Start hidden */
+  }
+  60% {
+    transform: translateX(30px); /* Move slightly to the right */
+  }
+  80% {
+    transform: translateX(-10px); /* Move back slightly to the left */
+  }
+  100% {
+    transform: translateX(0); /* End at original position */
+    opacity: 1; /* Fully visible */
+  }
+}
