@@ -76,7 +76,7 @@ const TearWiper = ({ onReturnToHome, selectedDefense }) => {
       <h1>Welcome to Tear Wiper!</h1>
       <h2>Defense Method: {selectedDefense}</h2>
       <div className="instructions">
-        <p>Wipe the tears and find what's behind them!</p>
+        <p>Use the {selectedDefense} and wipe the tears!</p>
       </div>
 
       <button
