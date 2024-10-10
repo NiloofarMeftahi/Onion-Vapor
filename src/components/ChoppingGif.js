@@ -4,6 +4,7 @@ const ChoppingGif = () => {
   return (
     <div className="chopping-gif">
       <iframe
+        title='ChoppingGif'
         src="https://giphy.com/embed/tyXo7h3mSiodwLW90j"
         width="300" 
         height="300" 
