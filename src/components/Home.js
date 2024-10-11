@@ -3,7 +3,7 @@ import React from 'react';
 const Home = ({ startGame }) => {
   return (
     <div> 
-      <h1>Onion Vapor Challenge</h1>
+      <h1>Onion Vapor</h1>
       
       {/* Wrapping instructions in a div with the slide-in animation */}
       <div className="instructions">
