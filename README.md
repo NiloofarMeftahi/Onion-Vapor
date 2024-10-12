@@ -5,7 +5,7 @@
 ### 1.1 Feature Name
 **Onion Vapor**
 
-### 1.2 Challenged It Is Related To
+### 1.2 Challenge It Is Related To
 **Chopping Onions**
 
 ### 1.3 Feature Summary
